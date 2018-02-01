@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4010488693341348}
   - component: {fileID: 114868234228660556}
+  - component: {fileID: 114834128769594756}
   - component: {fileID: 61471503085910502}
   - component: {fileID: 50627327297767918}
   m_Layer: 9
@@ -82,8 +83,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809030576164378}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.24, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5892028, y: 0.5892028, z: 0.5892028}
   m_Children:
   - {fileID: 4843086692804618}
@@ -187,9 +188,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3685bb2d39796a94ab24037820b8e584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPos: {fileID: 4298909402009448}
   Bullet: {fileID: 1282756936959604, guid: 88467ac6368543b4a9722ae5696faee2, type: 2}
-  Bomb: {fileID: 1519012993835388, guid: 2c6f5ff0526c8094cbccc8fcf24a4272, type: 2}
+  BombInst: {fileID: 0}
+  parent: {fileID: 4010488693341348}
+--- !u!114 &114834128769594756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809030576164378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203be76169ab7b446b717d55a6d81d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayersHealth: 0
 --- !u!114 &114868234228660556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,8 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b840eb89b6e50784298e158df16a30df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
-  jump: 0
+  facingRight: 1
+  speed: 5
+  jumpForce: 10
   groundCheck: {fileID: 4982875101078914}
 --- !u!212 &212867662851483646
 SpriteRenderer:

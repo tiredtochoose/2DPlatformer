@@ -27,6 +27,7 @@ public class Lesson3_Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         transform.Translate(Vector2.right * Speed * Time.fixedDeltaTime); //перемещаем ракету
     }
     void OnTriggerEnter2D(Collider2D collision)

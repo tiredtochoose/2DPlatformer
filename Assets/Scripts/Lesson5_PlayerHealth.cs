@@ -9,11 +9,6 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
 
     // Use this for initialization
 
-    public void PlayerHurt(float Dam)
-    {
-        PlayersHealth -= Dam;
-    }
-
 	void Start () {
 		
 	}
