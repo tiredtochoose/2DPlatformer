@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1695879733256116}
   m_IsPrefabParent: 1
+--- !u!1 &1392947368287570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4019385571666198}
+  m_Layer: 10
+  m_Name: Enemy_Ninja_Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1633685339778134
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,6 +53,7 @@ GameObject:
   - component: {fileID: 50103487767186840}
   - component: {fileID: 114364942722554042}
   - component: {fileID: 70863359196098174}
+  - component: {fileID: 58193428818909872}
   m_Layer: 10
   m_Name: Enemy_Ninja
   m_TagString: Enemy
@@ -45,6 +61,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4019385571666198
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392947368287570}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06109912, y: 0.110318646, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4497579008141912}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4496488961573340
 Transform:
   m_ObjectHideFlags: 1
@@ -65,10 +94,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695879733256116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.084, y: -2.298, z: 0.12690616}
+  m_LocalPosition: {x: 4.22, y: -2.298, z: 0.12690616}
   m_LocalScale: {x: 0.5892028, y: 0.5892028, z: 0.5892028}
   m_Children:
   - {fileID: 4496488961573340}
+  - {fileID: 4019385571666198}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,6 +122,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58193428818909872
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695879733256116}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05, y: 0}
+  serializedVersion: 2
+  m_Radius: 6.0985017
 --- !u!70 &70863359196098174
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -120,6 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   Speed: 1
+  Target: {fileID: 0}
+  MinAttackDist: 1
 --- !u!212 &212317898117787250
 SpriteRenderer:
   m_ObjectHideFlags: 1
