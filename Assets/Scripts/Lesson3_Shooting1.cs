@@ -26,7 +26,7 @@ public class Lesson3_Shooting1 : MonoBehaviour {
         //отталкивая все в радиусе поражения.
 
         if (Input.GetButtonDown("Fire2")) // Если нажата вторая кнопка выстрела 
-            Instantiate(BombInst, parent); // Создаем бомбу в точке SpawnPos
+            Instantiate(BombInst, transform.position, transform.rotation); // Создаем бомбу в точке SpawnPos
 
 
     }
