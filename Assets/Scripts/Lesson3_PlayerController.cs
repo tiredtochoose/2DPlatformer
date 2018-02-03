@@ -65,7 +65,7 @@ public class Lesson3_PlayerController : MonoBehaviour
                 
         //3. Реализовать прыжок.
         Dir.y = Input.GetAxis("Jump"); //считываем, какие клавиши были нажаты, из Input Manager'а компонет Jump
-        print(Dir.y);
+        
 
         if (jump)// если игрок может прыгать (то есть если условие jump выполнено)
         {
