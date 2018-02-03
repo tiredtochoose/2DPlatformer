@@ -37,6 +37,7 @@ public class Lesson5_HUD : MonoBehaviour {
     //    screenRect.height);
     //    sliderValue = GUI.HorizontalSlider(sliderRect, sliderValue, 0.0f, sliderMaxValue);
     //    return sliderValue;
-    //}
+    //}
+
 
 }
