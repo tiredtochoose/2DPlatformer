@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Lesson3_Shooting1 : MonoBehaviour {
-
+    //this script lies on Dragon's Gun
 
     //Задание2 -  Реализовать стрельбу.
     //public Transform SpawnPos; //точка, в которм будет сауниться снаряд
