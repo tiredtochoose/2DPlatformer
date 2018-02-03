@@ -14,7 +14,14 @@ public class Lesson3_MyEnemy : MonoBehaviour {
     public float MinAttackDist; //минимальное расстояние, с которого враг может атаковать
     public float MaxFollowDist; //расстояние, на котором враг теряет игрока из виду
     public GameObject SpawnPos; //точка возврата врага, если он теряет игрока из виду
-    
+
+    public GameObject Projectile;
+    private bool Cooldown = false;
+    public float ReloadTime;
+
+    public Transform parent;
+
+
     void Start () {
 		
 	}
@@ -22,14 +29,14 @@ public class Lesson3_MyEnemy : MonoBehaviour {
     public void Hurt(int Damage) //функция Hurt, которая принимает аргумент Damage, прописанный в
                                  //Lesson3_Projectile, положенный на префаб Fire
     {
-        Health -= Damage;  //Уменьшаем здоровье на дамаг              
+        Health -= Damage;  //Уменьшаем здоровье на дамаг   
+        if (Health < 1)
+            Die(); // если здоровье становится меньше 1, враг умирает
     }
 
     // Update is called once per frame
     void Update () {
         
-        if (Health < 1)
-            Destroy(gameObject); // если здоровье становится меньше 0, враг умирает
     }
 
     void FixedUpdate()
@@ -58,19 +65,10 @@ public class Lesson3_MyEnemy : MonoBehaviour {
                 
                 //if (Vector3.Distance(transform.position, AttackTarget.transform.position) > MaxFollowDist)
                 if (DistanceBetween(transform.position, AttackTarget.transform.position) > MaxFollowDist)
-                {
-                    
 
-                    x = DirectionDeterm(SpawnPos);
-                    if (x < 0 && facingRight) //если игрок слева, а враг смотрит направо
-                        Flip(); //разворачивается
-                    else if (x > 0 && !facingRight) //если игрок справв, а враг смотрит налево
-                        Flip(); //разворачивается
-                                        
-                    transform.position = Vector3.MoveTowards(transform.position, SpawnPos.transform.position, Speed * Time.fixedDeltaTime);
-                   // Angry = false;
-                }
-                    
+                    ReturnToPosition();
+
+
             }
                              
         }
@@ -78,6 +76,16 @@ public class Lesson3_MyEnemy : MonoBehaviour {
             return;
     }
 
+    private void ReturnToPosition()
+    {
+       float x = DirectionDeterm(SpawnPos); //определяем в каком направлении SpawnPos
+        if (x < 0 && facingRight) //если SpawnPos слева, а враг смотрит направо
+            Flip(); //разворачивается
+        else if (x > 0 && !facingRight) //если SpawnPos справв, а враг смотрит налево
+            Flip(); //разворачивается
+
+        transform.position = Vector3.MoveTowards(transform.position, SpawnPos.transform.position, Speed * Time.fixedDeltaTime);
+    }
 
     private float DistanceBetween(Vector3 currentPos, Vector3 target)
     {
@@ -109,7 +117,25 @@ public class Lesson3_MyEnemy : MonoBehaviour {
 
     private void Attack() // функция атаки
     {
-        print("Attacking!!!");
+        //print("Attacking!!!");
+
+        if (!Cooldown)
+        {
+            Cooldown = true;
+            Invoke("Reload", ReloadTime);
+            Instantiate(Projectile, parent);
+        }
+               
+    }
+
+    void Reload()
+    {
+        Cooldown = false;
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
 }
