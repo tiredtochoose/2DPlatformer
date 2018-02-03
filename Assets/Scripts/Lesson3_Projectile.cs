@@ -26,12 +26,13 @@ public class Lesson3_Projectile : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        
+    {        
         transform.Translate(Vector2.right * Speed * Time.fixedDeltaTime); //перемещаем ракету
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
+        print("Fire entered collision" + collision.gameObject.name);
         if (collision.gameObject.tag == "Enemy") //при сталкновени с геймобжектосм с тэгом Enemy
         {
             collision.GetComponent<Lesson3_MyEnemy>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
