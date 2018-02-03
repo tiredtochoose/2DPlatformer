@@ -52,8 +52,8 @@ GameObject:
   - component: {fileID: 4497579008141912}
   - component: {fileID: 50103487767186840}
   - component: {fileID: 114364942722554042}
-  - component: {fileID: 70863359196098174}
   - component: {fileID: 58193428818909872}
+  - component: {fileID: 61664352826896052}
   m_Layer: 10
   m_Name: Enemy_Ninja
   m_TagString: Enemy
@@ -82,7 +82,7 @@ Transform:
   m_GameObject: {fileID: 1633685339778134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.061099526, y: 0.110318646, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5892028, y: 0.5892028, z: 0.5892028}
   m_Children: []
   m_Father: {fileID: 4497579008141912}
   m_RootOrder: 0
@@ -94,8 +94,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695879733256116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.22, y: -2.298, z: 0.12690616}
-  m_LocalScale: {x: 0.5892028, y: 0.5892028, z: 0.5892028}
+  m_LocalPosition: {x: 5.24, y: -2.35, z: 0.12690616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4496488961573340}
   - {fileID: 4019385571666198}
@@ -136,9 +136,9 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.05, y: 0}
   serializedVersion: 2
-  m_Radius: 6.0985017
---- !u!70 &70863359196098174
-CapsuleCollider2D:
+  m_Radius: 4
+--- !u!61 &61664352826896052
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -147,11 +147,21 @@ CapsuleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07, y: 0.0675859}
-  m_Size: {x: 0.8686508, y: 1.8233193}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0.11375916}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.60105085, y: 1.1121671}
+  m_EdgeRadius: 0
 --- !u!114 &114364942722554042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,8 +175,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 3
   Speed: 1
-  Target: {fileID: 0}
-  MinAttackDist: 1
+  MinAttackDist: 2
+  MaxFollowDist: 5
+  SpawnPos: {fileID: 0}
+  Projectile: {fileID: 1282756936959604, guid: 96fe9fc92db4c984283789b6c9210b79, type: 2}
+  ReloadTime: 5
+  parent: {fileID: 4019385571666198}
 --- !u!212 &212317898117787250
 SpriteRenderer:
   m_ObjectHideFlags: 1
