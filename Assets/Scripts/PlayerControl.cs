@@ -39,7 +39,9 @@ public class PlayerControl : MonoBehaviour
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetButtonDown("Jump") && grounded)
-			jump = true;
+            // Set the Jump animator trigger parameter.
+            anim.SetTrigger("Jump");
+        jump = true;
 	}
 
 
@@ -73,8 +75,7 @@ public class PlayerControl : MonoBehaviour
 		// If the player should jump...
 		if(jump)
 		{
-			// Set the Jump animator trigger parameter.
-			anim.SetTrigger("Jump");
+			
 
 			// Play a random jump audio clip.
 			int i = Random.Range(0, jumpClips.Length);

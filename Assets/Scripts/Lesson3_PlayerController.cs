@@ -18,8 +18,13 @@ public class Lesson3_PlayerController : MonoBehaviour
     public Transform groundCheck;           // марвер "на земле", в который положен спрайт groundCheck в инспректре, расположенный в ногах у персонажа
     private Rigidbody2D rb;                 //переменная Rigidbody2D
 
+    public Animator animator;
+
+
 
     void Start () {
+
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();  //в rb кладем компонент Rigidbody данного геймобжекта
     }
 	
@@ -31,23 +36,35 @@ public class Lesson3_PlayerController : MonoBehaviour
 
         //даем определение jump: если нажата кнопка "Jump" из input менеджера (пробел)  
         // и если выполнено условие grounded
-        
+
         if (Input.GetButtonDown("Jump") && grounded)
+        {            
+            animator.SetBool("Jump", !animator.GetBool("Jump"));
             jump = true;
+        }
+        
+        if (Input.GetButtonUp("Jump"))
+            animator.SetBool("Jump", false);
     }
+
 
     void FixedUpdate()
     {
         Dir.x = Input.GetAxis("Horizontal"); //считываем, какие клавиши были нажаты из Input Manager'а 
                                              //из настроек оси Horizontal и записываем данные в Vector3 Dir ось х
+        
+        animator.SetFloat("Speed", Mathf.Abs(Dir.x));
+
         if (Dir.x > 0)                         // если значение оси меняется, то есть что-то было нажато, то
         {
-            //transform.position += Dir * speed * Time.fixedDeltaTime; // меняем положение персонажа
-            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
+           
+            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime); // меняем положение персонажа
+
             if (!facingRight)
             {
                 facingRight = true;
-                Flip();
+                animator.SetBool("facingRight", true);
+                //Flip();
             }
                 
         }
@@ -58,7 +75,8 @@ public class Lesson3_PlayerController : MonoBehaviour
             if (facingRight)
             {
                 facingRight = false;
-                Flip();
+                animator.SetBool("facingRight", false);
+                // Flip();
             }
                                             
         }
@@ -69,6 +87,8 @@ public class Lesson3_PlayerController : MonoBehaviour
 
         if (jump)// если игрок может прыгать (то есть если условие jump выполнено)
         {
+           
+
             rb.velocity = new Vector2(0, jumpForce); //к Rigidbogy rb (в котором лежит компонент Rigidbody данного геймобжекта)
             //применяем вектор скорости x=0, y=jumpForce,установленный в инспектре
 

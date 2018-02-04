@@ -14,7 +14,7 @@ public class Lesson5_HUD : MonoBehaviour {
     {
         PlayerHP = transform.parent.GetComponent<Lesson5_PlayerHealth>();
         sliderValue = PlayerHP.PlayersHealth;
-        print(sliderValue);
+        //print(sliderValue);
 
 
         GUI.BeginGroup(new Rect(Screen.width / 2 - 100, 10, 200, 100));

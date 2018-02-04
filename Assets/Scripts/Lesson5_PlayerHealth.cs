@@ -38,7 +38,6 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
     {
 
         sliderValue = PlayersHealth;
-        print(sliderValue);
 
         GUI.BeginGroup(new Rect(Screen.width / 2 - 100, 10, 200, 100));
         GUI.Label(new Rect(0, 0, 50, 20), "Health: ");
