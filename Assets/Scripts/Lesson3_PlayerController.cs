@@ -63,8 +63,8 @@ public class Lesson3_PlayerController : MonoBehaviour
             if (!facingRight)
             {
                 facingRight = true;
-                animator.SetBool("facingRight", true);
-                //Flip();
+              //  animator.SetBool("facingRight", true);
+                Flip();
             }
                 
         }
@@ -75,8 +75,8 @@ public class Lesson3_PlayerController : MonoBehaviour
             if (facingRight)
             {
                 facingRight = false;
-                animator.SetBool("facingRight", false);
-                // Flip();
+                //animator.SetBool("facingRight", false);
+                 Flip();
             }
                                             
         }
@@ -105,4 +105,5 @@ public class Lesson3_PlayerController : MonoBehaviour
         transform.localScale = TheScale;
     }
 
+    
 }

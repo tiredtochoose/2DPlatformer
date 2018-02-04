@@ -22,11 +22,11 @@ public class Lesson3_Shooting1 : MonoBehaviour {
         if (Input.GetButtonDown("Fire1")) // Если нажата кнопка выстрела                                          
         {
             //Instantiate(Bullet, parent);
-            //animator.SetFloat("Attack", 1);
-            animator.SetBool("Attack", true);
+            animator.SetTrigger("Attack");
+            //animator.SetBool("Attack", true);
         }
-        if (Input.GetButtonUp("Fire1"))
-            animator.SetBool("Attack", false);
+        //if (Input.GetButtonUp("Fire1"))
+        //    animator.SetBool("Attack", false);
 
 
             //4. Реализовать мины, который ставит игрок, наступая на которые они взрываются нанося урон и 
@@ -34,7 +34,11 @@ public class Lesson3_Shooting1 : MonoBehaviour {
 
             if (Input.GetButtonDown("Fire2")) // Если нажата вторая кнопка выстрела 
             Instantiate(BombInst, transform.position, transform.rotation); // Создаем бомбу в точке SpawnPos
+    }
 
+    public void Shoot()
+    {
 
+        Instantiate(Bullet, parent);
     }
 }

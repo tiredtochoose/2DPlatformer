@@ -46,5 +46,10 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
 
     }
 
-   
+    void Shoot()
+    {
+        transform.GetChild(0).GetComponent<Lesson3_Shooting1>().Shoot();
+
+    }
+
 }
