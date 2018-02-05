@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212236493083679688}
   - component: {fileID: 61306374778804608}
   - component: {fileID: 50688883038623824}
+  - component: {fileID: 95626388112134588}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Bullet
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282756936959604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: -0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +89,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.91, y: 0.4}
   m_EdgeRadius: 0
+--- !u!95 &95626388112134588
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282756936959604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2490d6eb5b0f99749b63c0f64ccb01c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114591996325240752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BOOM: {fileID: 1661423926288346, guid: 5745e0a2c965f484e90d6ec454e966c5, type: 2}
   Damage: 1
-  Speed: 10
+  Speed: 8
   LifeTime: 2
 --- !u!212 &212236493083679688
 SpriteRenderer:
@@ -134,9 +152,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1783731295
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 1535931219
+  m_SortingLayer: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: eff13b04babefe640978fb93720719c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
