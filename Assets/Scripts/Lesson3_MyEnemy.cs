@@ -15,11 +15,11 @@ public class Lesson3_MyEnemy : MonoBehaviour {
     public float MaxFollowDist; //расстояние, на котором враг теряет игрока из виду
     public GameObject SpawnPos; //точка возврата врага, если он теряет игрока из виду
 
-    public GameObject Projectile;
-    private bool Cooldown = false;
-    public float ReloadTime;
+    public GameObject Projectile; // снаряд врага
+    private bool Cooldown = false; // состояние перезарядки
+    public float ReloadTime; //  время перезарядки
 
-    public Transform parent;
+    public Transform parent; // родитель
 
 
     void Start () {
@@ -41,11 +41,11 @@ public class Lesson3_MyEnemy : MonoBehaviour {
 
     void FixedUpdate()
     {
+        //print(Angry);
        
 
-        if (Angry) // если игрок зашел в зону видимости 
+        if (Angry) // если игрок зашел в зону видимости врага
         {
-
             float x = DirectionDeterm(AttackTarget); // определяем с какой стороны игрок: если х < 0, то слева, если х > 0, то справа
 
             if (x < 0 && facingRight) //если игрок слева, а враг смотрит направо
@@ -54,29 +54,28 @@ public class Lesson3_MyEnemy : MonoBehaviour {
                 Flip(); //разворачивается
 
             //проверяем дистанцию до игрока 
-            //if (Vector3.Distance(transform.position, AttackTarget.transform.position) <= MinAttackDist) //eсли дистанция позволяет атакуем
+            //eсли дистанция позволяет атакуем
             if (DistanceBetween(transform.position, AttackTarget.transform.position) <= MinAttackDist)
                     Attack(); // атакуем
 
-            // Если мы далековато, двигаемся к цели
+            
             else
-            {                
+            {
+                // Если враг слишком далеко от игрока, идем к нему
                 transform.position = Vector3.MoveTowards(transform.position, AttackTarget.transform.position, Speed * Time.fixedDeltaTime);
                 
-                //if (Vector3.Distance(transform.position, AttackTarget.transform.position) > MaxFollowDist)
+                //если же игрок убежал от врага, враг возвращается на свою позицию
                 if (DistanceBetween(transform.position, AttackTarget.transform.position) > MaxFollowDist)
 
                     ReturnToPosition();
-
-
             }
                              
         }
-        else
-            return;
+        //else
+        //    return;
     }
 
-    private void ReturnToPosition()
+    private void ReturnToPosition() // функция возвращения на место
     {
        float x = DirectionDeterm(SpawnPos); //определяем в каком направлении SpawnPos
         if (x < 0 && facingRight) //если SpawnPos слева, а враг смотрит направо
@@ -84,9 +83,11 @@ public class Lesson3_MyEnemy : MonoBehaviour {
         else if (x > 0 && !facingRight) //если SpawnPos справв, а враг смотрит налево
             Flip(); //разворачивается
 
+        // враг возвращается на свою позицию
         transform.position = Vector3.MoveTowards(transform.position, SpawnPos.transform.position, Speed * Time.fixedDeltaTime);
     }
 
+    // функция определения расстояние между врагом и заданным объектом
     private float DistanceBetween(Vector3 currentPos, Vector3 target)
     {
         return Vector3.Distance(currentPos, target);
@@ -108,6 +109,7 @@ public class Lesson3_MyEnemy : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D enteredCol) //триггер на косание
     {
+        print(enteredCol.gameObject.name);
         if (enteredCol.gameObject.layer == 9) //если объект, активировавший триггер, имеет слой "player", то 
         {
             AttackTarget = enteredCol.gameObject; // целью аттаки становится он (объект, активировавший триггер со слоем "player",)
@@ -119,10 +121,10 @@ public class Lesson3_MyEnemy : MonoBehaviour {
     {
         //print("Attacking!!!");
 
-        if (!Cooldown)
+        if (!Cooldown)//если враг сейчас не перезаряжается, то 
         {
-            Cooldown = true;
-            Invoke("Reload", ReloadTime);
+            Cooldown = true; // на перезарядке
+            Invoke("Reload", ReloadTime); // с задержкой вызываем функцию релоад
             Instantiate(Projectile, parent);
         }
                
@@ -130,12 +132,12 @@ public class Lesson3_MyEnemy : MonoBehaviour {
 
     void Reload()
     {
-        Cooldown = false;
+        Cooldown = false; //перезарядка закончилась
     }
 
     void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject); // смерть
     }
 
 }

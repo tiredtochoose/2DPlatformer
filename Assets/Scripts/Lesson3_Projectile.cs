@@ -7,15 +7,19 @@ public class Lesson3_Projectile : MonoBehaviour
 
     // Use this for initialization
 
-    public GameObject BOOM;
+  
     public int Damage; //Урон
     public float Speed, LifeTime; //Жизнь и скорость снаряда
+    Animator fireAnim;
+    private Rigidbody2D rb;
+
 
     Vector3 Dir = new Vector3(0, 0, 0); //направление
 
 
     void Start()
     {
+        fireAnim = transform.gameObject.GetComponent<Animator>();
         Destroy(gameObject, LifeTime); // убиваем снаряд через определенное время LifeTime (устанавливается через инспектор)
     }
 
@@ -32,14 +36,28 @@ public class Lesson3_Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Fire entered collision" + collision.gameObject.name);
+        //print("Fire entered collision" + collision.gameObject.name);
+
         if (collision.gameObject.tag == "Enemy") //при сталкновени с геймобжектосм с тэгом Enemy
         {
-            collision.GetComponent<Lesson3_MyEnemy>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
-                                                                   //и передеаем значение дамага как аргумент
-           //Instantiate(BOOM, transform.position, transform.rotation); // Спауним объект, который симулирует взрыв
-            Destroy(gameObject);//убиваем снаряд 
-           // Destroy(BOOM); -- не работает почему-то поэтому убрала :(
+            fireAnim.SetTrigger("Explode");
+            // collision.GetComponent<Lesson3_MyEnemy>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
+            //и передеаем значение дамага как аргумент
+            Speed = 0;
+            rb = GetComponent<Rigidbody2D>();
+            rb.bodyType = RigidbodyType2D.Kinematic;
+
+
+            print(rb.bodyType);
+            
+
+            //DestroyProjectile();
         }
+        
+    }
+
+    void DestroyProjectile()
+    {
+        Destroy(gameObject);//убиваем снаряд 
     }
 }
