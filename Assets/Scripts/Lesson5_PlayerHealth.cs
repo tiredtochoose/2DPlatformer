@@ -9,11 +9,13 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
 
     private float sliderValue;
     public float playerHP_Max = 10.0f;
+    private Animator anim;
+
 
     // Use this for initialization
 
     void Start() {
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,9 +25,16 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
 
     public void ReceivingDamage(float dmg)
     {
+       
+        print(dmg);
         PlayersHealth -= dmg;
+        anim.SetTrigger("Hurt");
         if (PlayersHealth <= 0)
+        {
+            anim.SetBool("Die_Bool", true);
             Die();
+        }
+            
     }
 
     void Die()

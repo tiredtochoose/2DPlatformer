@@ -23,13 +23,10 @@ public class Lesson3_Shooting : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1")) // Если нажата кнопка выстрела                                          
         {
-            //Instantiate(Bullet, parent);
-            animator.SetTrigger("Attack");
-            //animator.SetBool("Attack", true);
+            animator.SetBool("Attack_Bool", true); // в анимации стоит ивент, вызывающий метод Shoot
         }
         if (Input.GetButtonUp("Fire1"))
-            animator.SetBool("Attack", false);
-
+            animator.SetBool("Attack_Bool", false);
 
         //4. Реализовать мины, который ставит игрок, наступая на которые они взрываются нанося урон и 
         //отталкивая все в радиусе поражения.
@@ -40,7 +37,6 @@ public class Lesson3_Shooting : MonoBehaviour
 
     public void Shoot() //функция, вызываемая в анимации по ивенту 
     {
-
         Instantiate(Bullet, parent); // родить снаряд
     }
 }
