@@ -117,10 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae25db9a5b778b4da5769fc38b90d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BOOM: {fileID: 1661423926288346, guid: 5745e0a2c965f484e90d6ec454e966c5, type: 2}
   Damage: 1
   Speed: 8
-  LifeTime: 2
+  LifeTime: 100000
 --- !u!212 &212236493083679688
 SpriteRenderer:
   m_ObjectHideFlags: 1
