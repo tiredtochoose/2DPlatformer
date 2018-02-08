@@ -1055,10 +1055,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 2
   Speed: 4
-  MinAttackDist: 1
+  AttackDist: 0
   MaxFollowDist: 20
   SpawnPos: {fileID: 1214699818}
   ReloadTime: 1
+  Damage: 0
 --- !u!1 &1233988322
 GameObject:
   m_ObjectHideFlags: 0

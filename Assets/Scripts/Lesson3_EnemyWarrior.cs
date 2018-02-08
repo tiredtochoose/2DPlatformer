@@ -32,13 +32,19 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
         
     }
 
-    //public void Hurt(int Damage) //функция Hurt, которая принимает аргумент Damage, прописанный в
-    //                             //Lesson3_Projectile, положенный на префаб Fire
-    //{
-    //    Health -= Damage;  //Уменьшаем здоровье на дамаг   
-    //    if (Health < 1)
-    //        Die(); // если здоровье становится меньше 1, враг умирает
-    //}
+    public void Hurt(int Damage) //функция Hurt, которая принимает аргумент Damage, прописанный в
+                                 //Lesson3_Projectile, положенный на префаб Fire
+    {
+        Health -= Damage;  //Уменьшаем здоровье на дамаг   
+        anim.SetTrigger("Hurt");
+        if (Health < 1)
+        {
+            anim.SetTrigger("Die");
+            Invoke("Die", 2);
+
+        }
+            //Die(); // если здоровье становится меньше 1, враг умирает
+    }
 
     // Update is called once per frame
     void Update() {
@@ -143,6 +149,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
 
     void Die()
     {
+        
         Destroy(gameObject); // смерть
     }
 

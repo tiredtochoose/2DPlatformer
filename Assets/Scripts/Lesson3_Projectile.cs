@@ -41,7 +41,7 @@ public class Lesson3_Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Enemy") //при сталкновени с геймобжектосм с тэгом Enemy
         {
             fireAnim.SetTrigger("Explode");
-            // collision.GetComponent<Lesson3_MyEnemy>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
+            collision.GetComponent<Lesson3_EnemyWarrior>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
             //и передеаем значение дамага как аргумент
             Speed = 0;
             rb = GetComponent<Rigidbody2D>();
