@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xMargin: 1
-  xSmooth: 8
+  xSmooth: 1
   maxXAndY: {x: 20, y: 0}
-  minXAndY: {x: 0, y: 0}
+  minXAndY: {x: -3, y: 0}
 --- !u!124 &124412396341294310
 Behaviour:
   m_ObjectHideFlags: 1

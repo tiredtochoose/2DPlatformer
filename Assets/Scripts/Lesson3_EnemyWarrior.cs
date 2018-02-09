@@ -37,6 +37,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     {
         Health -= Damage;  //Уменьшаем здоровье на дамаг   
         anim.SetTrigger("Hurt");
+        //anim.ResetTrigger("Hurt");
         if (Health < 1)
         {
             anim.SetTrigger("Die");
@@ -57,6 +58,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
         if (Angry) // если игрок зашел в зону видимости врага
         {
             DistanceToPlayer = Vector3.Distance(transform.position, AttackTarget.transform.position);
+
             float x = DirectionDeterm(AttackTarget); // определяем с какой стороны игрок: если х < 0, то слева, если х > 0, то справа
 
             if (x < 0 && facingRight) //если игрок слева, а враг смотрит направо

@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: e5b77fd8c1eeef548a38ff8071858e22
+timeCreated: 1518086451
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: platform-detail-03_2
+    21300002: Liana-detail-0
+    21300004: platform-detail-03_3
+    21300006: platform-detail-03_1
+    21300008: Liana_01
+    21300010: Liana_02
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Liana-detail-0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 339
+        width: 2339
+        height: 1239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1169.5, y: 429.5}
+        - {x: -1169.5, y: 406.71133}
+        - {x: -910.9132, y: -145.03864}
+        - {x: -366.6266, y: -619.5}
+        - {x: -277.15344, y: -59.869385}
+        - {x: -235.98792, y: -63.359924}
+        - {x: -186.1936, y: -604.22815}
+        - {x: -122.18213, y: -619.5}
+        - {x: -78.57202, y: -179.00366}
+        - {x: -35.726562, y: -180.25354}
+        - {x: -8.807495, y: -517.3854}
+        - {x: 163.03491, y: -619.5}
+        - {x: 304.18164, y: -542.1036}
+        - {x: 1022.85425, y: 170.35388}
+        - {x: 1169.5, y: 429.5}
+      physicsShape:
+      - - {x: -248.97559, y: -418.82703}
+        - {x: -250.11768, y: -397.1324}
+        - {x: -251.25977, y: -395.99057}
+        - {x: -251.25977, y: -369.7286}
+        - {x: -251.25977, y: -374.2959}
+        - {x: -250.11768, y: -375.43774}
+        - {x: -248.97559, y: -423.39432}
+        - {x: -246.6914, y: -425.67798}
+        - {x: -247.8335, y: -429.10342}
+        - {x: 475.10938, y: -429.10342}
+        - {x: 782.33154, y: -329.7648}
+        - {x: 1168.3579, y: 385.01666}
+        - {x: 1168.3579, y: 429.5}
+        - {x: -1168.3579, y: 429.5}
+        - {x: -1168.3579, y: 394.15128}
+        - {x: -999.3286, y: -163.05858}
+        - {x: -994.76025, y: -171.05135}
+        - {x: -979.9131, y: -118.52746}
+        - {x: -979.9131, y: 27.625938}
+        - {x: -943.3662, y: -6.6287646}
+        - {x: -931.9453, y: -0.91964734}
+        - {x: -929.66113, y: 37.90235}
+        - {x: -813.16797, y: -200.73875}
+        - {x: -804.03125, y: -206.44786}
+        - {x: -794.89453, y: -168.7677}
+        - {x: -597.313, y: -232.70981}
+        - {x: -585.8921, y: -225.85887}
+        - {x: -556.19775, y: -426.8198}
+        - {x: -551.6294, y: -429.10342}
+        - {x: -550.4873, y: -429.10342}
+        - {x: -545.91895, y: -421.1107}
+        - {x: -536.7822, y: -324.0557}
+        - {x: -529.9297, y: -234.99345}
+        - {x: -523.07715, y: -168.7677}
+        - {x: -394.021, y: -429.10342}
+        - {x: -248.97559, y: -429.10342}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Liana_01
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 111
+        width: 98
+        height: 802
+      alignment: 9
+      pivot: {x: 0.58192664, y: 0.99283767}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -49, y: 401}
+        - {x: -49, y: 206.34225}
+        - {x: -15.980195, y: -401}
+        - {x: 33.129665, y: -401}
+        - {x: 49, y: -224.12518}
+        - {x: 49, y: 401}
+      physicsShape:
+      - - {x: 8.003691, y: 202.91678}
+        - {x: 8.003691, y: 216.61867}
+        - {x: 6.861601, y: 238.31331}
+        - {x: 5.719511, y: 239.45512}
+        - {x: 5.719511, y: 265.71707}
+        - {x: 5.719511, y: 261.14978}
+        - {x: 6.861601, y: 260.00797}
+        - {x: 8.003691, y: 212.05136}
+        - {x: 10.28787, y: 209.76772}
+        - {x: 31.987577, y: 199.4913}
+        - {x: 49, y: 314.8155}
+        - {x: 49, y: 401}
+        - {x: -49, y: 401}
+        - {x: -49, y: 367.33936}
+        - {x: -17.122286, y: -306.3365}
+        - {x: -6.843477, y: -377.12952}
+        - {x: 1.1511518, y: -377.12952}
+        - {x: 5.719511, y: -366.85312}
+        - {x: 21.708769, y: -144.19754}
+        - {x: 12.57205, y: 204.05861}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Liana_02
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 0
+        width: 60
+        height: 779
+      alignment: 9
+      pivot: {x: 0.42902833, y: 0.9947166}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 389.5}
+        - {x: -30, y: 347.68524}
+        - {x: -0.5536877, y: -383.08176}
+        - {x: 10.86721, y: -389.5}
+        - {x: 23.430199, y: -389.5}
+        - {x: 30, y: -379.65628}
+        - {x: 30, y: 389.5}
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
