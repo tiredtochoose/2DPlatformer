@@ -26,7 +26,7 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
     public void ReceivingDamage(float dmg)
     {
        
-        print(dmg);
+        //print(dmg);
         PlayersHealth -= dmg;
         anim.SetTrigger("Hurt");
         if (PlayersHealth <= 0)

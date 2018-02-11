@@ -26,39 +26,47 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
 
 
     void Start() {
-
+        //берем компонент Аниматор из тела врага
         GameObject Warrior_body = GameObject.FindGameObjectWithTag("Warrior_body");
         anim = Warrior_body.GetComponent<Animator>();
-        
+
+        //цель атаки - плеер
+        GameObject player = GameObject.FindGameObjectWithTag("Dragon");
+        AttackTarget = player; // целью аттаки становится он (объект, активировавший триггер со слоем "player",)
+
     }
-
-    public void Hurt(int Damage) //функция Hurt, которая принимает аргумент Damage, прописанный в
-                                 //Lesson3_Projectile, положенный на префаб Fire
-    {
-        Health -= Damage;  //Уменьшаем здоровье на дамаг   
-        anim.SetTrigger("Hurt");
-        //anim.ResetTrigger("Hurt");
-        if (Health < 1)
-        {
-            anim.SetTrigger("Die");
-            Invoke("Die", 2);
-
-        }
-            //Die(); // если здоровье становится меньше 1, враг умирает
-    }
-
+    
     // Update is called once per frame
     void Update() {
-
+        DistanceToPlayer = Vector3.Distance(transform.position, AttackTarget.transform.position);
     }
+
+    //private void OnTriggerEnter2D(Collider2D enteredCol) //триггер на косание
+    //{
+    //    print("enteredCol is" + enteredCol.gameObject.name);
+
+    //    if (enteredCol.gameObject.layer == 9) //если объект, активировавший триггер, имеет слой "player", то 
+    //    {
+    //        AttackTarget = enteredCol.gameObject; // целью аттаки становится он (объект, активировавший триггер со слоем "player",)
+    //        Angry = true; // меняем состояние Angry на true, то есть противник на видит
+    //    }
+    //}
 
     void FixedUpdate()
     {
-       
+        
+        //print("Warrior - Player distance is" + DistanceToPlayer);
+
+        if (DistanceToPlayer <= MaxFollowDist)
+        {
+            
+            Angry = true; // меняем состояние Angry на true, то есть противник на видит
+        }
+
+
         if (Angry) // если игрок зашел в зону видимости врага
         {
-            DistanceToPlayer = Vector3.Distance(transform.position, AttackTarget.transform.position);
-
+            
             float x = DirectionDeterm(AttackTarget); // определяем с какой стороны игрок: если х < 0, то слева, если х > 0, то справа
 
             if (x < 0 && facingRight) //если игрок слева, а враг смотрит направо
@@ -74,12 +82,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
             
             //если же игрок убежал от врага, враг возвращается на свою позицию
             if (DistanceToPlayer > MaxFollowDist)
-
-            //    GoToPosition(Speed * Time.fixedDeltaTime);
-            {
-                Angry = !Angry;
-                //transform.position = Vector3.MoveTowards(transform.position, SpawnPos.transform.position, Speed * Time.fixedDeltaTime);
-            }
+                Angry = !Angry;           
         }       
 
         if (!Angry) // возвращени на место
@@ -99,6 +102,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     {
         anim.SetFloat("Walk", Speed);
         transform.position = Vector3.MoveTowards(transform.position, chaseObj.transform.position, chaseSpeed);
+
     }
     
     private float DirectionDeterm(GameObject target) //функция определия направления между данным игровым объектом(врагом) и целью (аргумент функции)
@@ -115,15 +119,19 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
         transform.localScale = enemyScale; // то, что поменяли, отдаем обратно данному игровому объекту
     }
 
-    private void OnTriggerEnter2D(Collider2D enteredCol) //триггер на косание
+    public void Hurt(int Damage) //функция Hurt, которая принимает аргумент Damage, прописанный в
+                                 //Lesson3_Projectile, положенный на префаб Fire
     {
-       // print("enteredCol is" + enteredCol.gameObject.name);
-
-        if (enteredCol.gameObject.layer == 9) //если объект, активировавший триггер, имеет слой "player", то 
+        Health -= Damage;  //Уменьшаем здоровье на дамаг   
+        anim.SetTrigger("Hurt");
+        //anim.ResetTrigger("Hurt");
+        if (Health < 1)
         {
-            AttackTarget = enteredCol.gameObject; // целью аттаки становится он (объект, активировавший триггер со слоем "player",)
-            Angry = true; // меняем состояние Angry на true, то есть противник на видит
+            anim.SetTrigger("Die");
+            Invoke("Die", 2);
+
         }
+        //Die(); // если здоровье становится меньше 1, враг умирает
     }
 
     private void Attack() // функция атаки
