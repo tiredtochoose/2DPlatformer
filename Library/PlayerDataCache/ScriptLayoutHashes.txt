@@ -1,6 +1,6 @@
 WindowsStandalone
 SceneListBegin?
-Assets/Scenes/newScene.unity
+Assets/Scenes/Enemies_Test.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Pauser
 09d1d5b6da41ba29654f534f7e195725 Assembly-CSharp.dll:.Lesson3_SpawnerScript
@@ -16,6 +16,8 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 9ca6347af5ceb6b0d1c105af31b6722e UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+d0833fd234d037dbbff56fd48915d4d2 Assembly-CSharp.dll:.Attribute
+5472b2d035c87888f991c35fd15eb038 Assembly-CSharp.dll:.Lesson5_PlayerHealth
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -81,8 +83,13 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-4ed3a23483d53f141299e41f9a828161 Assembly-CSharp.dll:.Lesson3_MyEnemy
+3b2695cba5a8a6d12e66485c1b23133c Assembly-CSharp.dll:.Lesson3_MyEnemy
 183ec198b619bfebb498a2b20f91e8c6 Assembly-CSharp.dll:.PickupSpawner
+ba33a09e0f012525752234a99e43b741 Assembly-CSharp.dll:.RarityManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ErrorMessageText
+a23651f3ffed9a270a788d0b83107e35 Assembly-CSharp.dll:.Item
+a782c0833226b62228def2ac047ba4db Assembly-CSharp.dll:.ItemProps
+e1fda9137d6faf8f31a2231279d022f5 Assembly-CSharp.dll:.Change_Sprite
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -124,12 +131,14 @@ ae289d5889b6425001e5b425e6e39478 Assembly-CSharp.dll:.Remover
 ed3f6bd27701553db1904f1c59b3180a Assembly-CSharp.dll:.BackgroundPropSpawner
 51df51ce5bc6c5914f837b8dad6925cb Assembly-CSharp.dll:.FollowPlayer
 ea21d35e00c800673c8a9a853c9c2413 Assembly-CSharp.dll:.PlayerHealth
+c498c684c3aa180580863c4354b5a8af Assembly-CSharp.dll:.Lesson5_HUD
 f77acaff45abbd72a5302b81ed4db8f7 Assembly-CSharp.dll:.Enemy
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 3a7ea88693e7dbc33727514ecdeb3444 Assembly-CSharp.dll:.LayBombs
 55d46e4fc3e0a5a4e10d3c142eb63d50 Assembly-CSharp.dll:.BackgroundParallax
 f8240cebefc54b5c6806cb49ecc2b267 Assembly-CSharp.dll:.BombPickup
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DatabaseManager
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -144,8 +153,10 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-1ecf130cd07090e0c00aca24596e808c Assembly-CSharp.dll:.Lesson3_PlayerController
+322efc99f9ad39a6e3ba5f8d4be5a864 Assembly-CSharp.dll:.Lesson3_PlayerController
 8146820807152860d56ede5e334ef033 Assembly-CSharp.dll:.Lesson3_Projectile
+0fb4fef8b815a17698c18e0fe47786d6 Assembly-CSharp.dll:.InventoryManager
+c0a7d70775408a9cc16a085b8dac57b3 Assembly-CSharp.dll:.ShopManager
 9982fac15dcd9d11232d51b39bedaef0 Assembly-CSharp.dll:.Rocket
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Lesson3_Wall
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
@@ -154,6 +165,8 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 58161cdb9cad2904d68b56b3278349b7 Assembly-CSharp.dll:.PlayerControl
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EquipmentManager
+38db62ccd6405a0410a7ddc3fcb6a6d4 Assembly-CSharp.dll:.HoverManager
 03d43914773b372bf586884f51569660 Assembly-CSharp.dll:.HealthPickup
 aa664606ba5fa16ff575df6463157de9 Assembly-CSharp.dll:.Spawner
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -161,12 +174,16 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+92613867e7b888daf20e9201009a7a54 Assembly-CSharp.dll:.BarManager
 b4058e6bcd04a54f5d405000fb8c505c Assembly-CSharp.dll:.Lesson4_BombBhv
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 aa664606ba5fa16ff575df6463157de9 Assembly-CSharp.dll:.Lesson3_Spawner
-6f584c0ad4ec2c08d22aeba3886a62f1 Assembly-CSharp.dll:.Lesson3_Shooting1
+2d5a3a27678e995f28c8fc803cc4daa2 Assembly-CSharp.dll:.Lesson3_Shooting1
 4fb6ffc66135d3aaff5e51dad3248c13 Assembly-CSharp.dll:.SetParticleSortingLayer
+8ef67c5c085904c420f25e4298e3b633 Assembly-CSharp.dll:.LootTable
 b24964b13bf5c79c4ea3d11c770d944e Assembly-CSharp.dll:.Lesson3_Scrits
+82c6bb924f7b23f7b4d7f5473af31250 Assembly-CSharp.dll:.EqSlotProps
+56b3ed2a96426ec38fa87874e217766d Assembly-CSharp.dll:.HoverSizeChanger
 5a0cfcdac8963398ab88e7af47fe6659 Assembly-CSharp.dll:.ScoreShadow
 c8c7c1d99415de995189ca6f34903980 Assembly-CSharp.dll:.Bomb
 307d9f491fea791345eb6aa66e84c179 Assembly-CSharp.dll:.CameraFollow

@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level.unity
     guid: 69575e6f2904c4c7dafafe28c5ec7068
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/newScene.unity
     guid: fd04e4e4819aa6a4aaa3a3a1504b07b7
+  - enabled: 1
+    path: Assets/Scenes/Enemies_Test.unity
+    guid: 24f671307ab15be4cb2c755e5d1b8d68
