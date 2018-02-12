@@ -7,7 +7,7 @@ public class Lesson6_LeverBhv : MonoBehaviour {
     private Animator anim;
     GameObject player;
     private float DistToPayer;
-    public bool closed = true;
+    public bool doorDown = true;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +28,7 @@ public class Lesson6_LeverBhv : MonoBehaviour {
         if (DistToPayer < 1.0f)
         {
             anim.SetBool("SwitchOn", true);
-            closed = false;
+            doorDown = false;
         }
 
 
