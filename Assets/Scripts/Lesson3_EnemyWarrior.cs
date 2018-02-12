@@ -8,13 +8,15 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     public int Health; //Задаем количество жизней через инспект
     public float Speed; // Задаем скорость 
 
-    private GameObject AttackTarget; // цель врага (в таргет крадем префаб плеера)
+   // private GameObject AttackTarget; // цель врага (в таргет крадем префаб плеера)
     private bool Angry; //видит ли нас противник     
     private bool facingRight = true; // смотрит вперед
     private float DistanceToPlayer;
     public float AttackDist; //минимальное расстояние, с которого враг может атаковать
     public float MaxFollowDist; //расстояние, на котором враг теряет игрока из виду
     public GameObject SpawnPos; //точка возврата врага, если он теряет игрока из виду
+    private GameObject player;
+    private GameObject Warrior_body;
 
     // public GameObject Projectile; // снаряд врага
     private bool Cooldown = false; // состояние перезарядки
@@ -27,48 +29,29 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
 
     void Start() {
         //берем компонент Аниматор из тела врага
-        GameObject Warrior_body = GameObject.FindGameObjectWithTag("Warrior_body");
+        Warrior_body = GameObject.FindGameObjectWithTag("Warrior_body");
         anim = Warrior_body.GetComponent<Animator>();
-
-        //цель атаки - плеер
-        GameObject player = GameObject.FindGameObjectWithTag("Dragon");
-        AttackTarget = player; // целью аттаки становится он (объект, активировавший триггер со слоем "player",)
+                
+        player = GameObject.FindGameObjectWithTag("Dragon");
+        
 
     }
     
     // Update is called once per frame
     void Update() {
-        DistanceToPlayer = Vector3.Distance(transform.position, AttackTarget.transform.position);
+        DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
     }
-
-    //private void OnTriggerEnter2D(Collider2D enteredCol) //триггер на косание
-    //{
-    //    print("enteredCol is" + enteredCol.gameObject.name);
-
-    //    if (enteredCol.gameObject.layer == 9) //если объект, активировавший триггер, имеет слой "player", то 
-    //    {
-    //        AttackTarget = enteredCol.gameObject; // целью аттаки становится он (объект, активировавший триггер со слоем "player",)
-    //        Angry = true; // меняем состояние Angry на true, то есть противник на видит
-    //    }
-    //}
-
+    
     void FixedUpdate()
-    {
-        
+    {        
         //print("Warrior - Player distance is" + DistanceToPlayer);
 
-        if (DistanceToPlayer <= MaxFollowDist)
-        {
-            
+        if (DistanceToPlayer <= MaxFollowDist)             
             Angry = true; // меняем состояние Angry на true, то есть противник на видит
-        }
-
-
+        
         if (Angry) // если игрок зашел в зону видимости врага
-        {
-            
-            float x = DirectionDeterm(AttackTarget); // определяем с какой стороны игрок: если х < 0, то слева, если х > 0, то справа
-
+        {            
+            float x = DirectionDeterm(player); // определяем с какой стороны игрок: если х < 0, то слева, если х > 0, то справа
             if (x < 0 && facingRight) //если игрок слева, а враг смотрит направо
                 Flip(); //разворачивается
             else if (x > 0 && !facingRight) //если игрок справв, а враг смотрит налево
@@ -78,7 +61,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
             if (DistanceToPlayer <= AttackDist)
                 Attack(); // атакуем
                 else if (DistanceToPlayer > AttackDist && DistanceToPlayer < MaxFollowDist)
-                                Chase(AttackTarget, Speed * Time.fixedDeltaTime); // Если враг слишком далеко от игрока, идем к нему
+                                Chase(player, Speed * Time.fixedDeltaTime); // Если враг слишком далеко от игрока, идем к нему
             
             //если же игрок убежал от врага, враг возвращается на свою позицию
             if (DistanceToPlayer > MaxFollowDist)
@@ -94,15 +77,22 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
                 Flip(); //разворачивается
 
             // враг возвращается на свою позицию
-            transform.position = Vector3.MoveTowards(transform.position, SpawnPos.transform.position, Speed * Time.fixedDeltaTime);
+            Chase(SpawnPos, Speed * Time.fixedDeltaTime);            
         }
     }
 
     private void Chase(GameObject chaseObj, float chaseSpeed)
     {
-        anim.SetFloat("Walk", Speed);
-        transform.position = Vector3.MoveTowards(transform.position, chaseObj.transform.position, chaseSpeed);
+        //anim.SetBool("Walk", true);
+        //transform.position = Vector3.MoveTowards(transform.position, chaseObj.transform.position, chaseSpeed);
+        //if (Mathf.Abs(transform.position.x - chaseObj.transform.position.x) < 0.1)
+        //    anim.SetBool("Walk", false);
 
+        print("chaseSpeed is " + chaseSpeed);
+        anim.SetFloat("Walk_float", chaseSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, chaseObj.transform.position, chaseSpeed);
+        if (Mathf.Abs(transform.position.x - chaseObj.transform.position.x) < 0.1)
+            anim.SetFloat("Walk_float", 0);
     }
     
     private float DirectionDeterm(GameObject target) //функция определия направления между данным игровым объектом(врагом) и целью (аргумент функции)
