@@ -16,6 +16,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     public float MaxFollowDist; //расстояние, на котором враг теряет игрока из виду
     public GameObject SpawnPos; //точка возврата врага, если он теряет игрока из виду
     private GameObject player;
+    
     private GameObject Warrior_body;
 
     // public GameObject Projectile; // снаряд врага
@@ -33,23 +34,30 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
         Warrior_body = GameObject.FindGameObjectWithTag("Warrior_body");
         anim = Warrior_body.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Dragon");
+        
     }
     
     // Update is called once per frame
     void Update() {
-        DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        
        
     }
     
     void FixedUpdate()
-    {        
-        //print("Warrior - Player distance is" + DistanceToPlayer);
+    {
+        DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        print("Warrior - Player distance is" + DistanceToPlayer);
 
-        if (DistanceToPlayer <= MaxFollowDist)             
+        if (DistanceToPlayer <= MaxFollowDist)
+        {
+            //AttackTarget = player;
             Angry = true; // меняем состояние Angry на true, то есть противник на видит
+        }
+        
         
         if (Angry) // если игрок зашел в зону видимости врага
-        {            
+        {
+            
             float x = DirectionDeterm(player); // определяем с какой стороны игрок: если х < 0, то слева, если х > 0, то справа
             if (x < 0 && facingRight) //если игрок слева, а враг смотрит направо
                 Flip(); //разворачивается
@@ -69,7 +77,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
                 Angry = !Angry;           
         }       
 
-        if (!Angry) // возвращени на место
+        if (!Angry) // возвращени на место >>>>>>все работает<<<<<<<
         {
             float x = DirectionDeterm(SpawnPos); //определяем в каком направлении SpawnPos
             if (x < 0 && facingRight) //если SpawnPos слева, а враг смотрит направо
@@ -82,23 +90,14 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, SpawnPos.transform.position, Speed * Time.fixedDeltaTime); //с этим методом перс стоит в айдле
             if (Mathf.Abs(transform.position.x - SpawnPos.transform.position.x) < 0.1)
                 anim.SetFloat("Walk_float", 0);
-
             //Chase(SpawnPos, Speed * Time.fixedDeltaTime); //если вызывать chase, то сразу включается анимация ходьбы
         }
     }
 
     private void Chase(GameObject chaseObj, float chaseSpeed)
     {
-        //anim.SetBool("Walk", true);
-        //transform.position = Vector3.MoveTowards(transform.position, chaseObj.transform.position, chaseSpeed);
-        //if (Mathf.Abs(transform.position.x - chaseObj.transform.position.x) < 0.1)
-        //    anim.SetBool("Walk", false);
-
-        //print("chaseSpeed is " + chaseSpeed);
         anim.SetFloat("Walk_float", chaseSpeed);
         transform.position = Vector3.MoveTowards(transform.position, chaseObj.transform.position, chaseSpeed);
-        //if (Mathf.Abs(transform.position.x - chaseObj.transform.position.x) < 0.1)
-        //    anim.SetFloat("Walk_float", 0);
     }
 
     private float DirectionDeterm(GameObject target) //функция определия направления между данным игровым объектом(врагом) и целью (аргумент функции)
@@ -149,7 +148,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     {
         //print("Attacking!!!");
         Cooldown = false; //перезарядка закончилась
-        //anim.SetBool("Attack_bool", false);
+        anim.SetBool("Attack_bool", false);
         player.GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
         //GameObject.FindGameObjectWithTag("Dragon").GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
     }
