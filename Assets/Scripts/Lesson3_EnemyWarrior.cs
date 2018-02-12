@@ -57,12 +57,12 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
                 Flip(); //разворачивается
 
             //проверяем дистанцию до игрока, eсли дистанция позволяет атакуем
-            if (DistanceToPlayer <= AttackDist)                      
+            if (DistanceToPlayer <= AttackDist)
                 Attack(); // атакуем
-            
-            
-                else if (DistanceToPlayer > AttackDist && DistanceToPlayer < MaxFollowDist)
-                                Chase(player, Speed * Time.fixedDeltaTime); // Если враг слишком далеко от игрока, идем к нему
+
+
+            else if (DistanceToPlayer > AttackDist && DistanceToPlayer < MaxFollowDist)
+                Chase(player, Speed * Time.fixedDeltaTime); // Если враг слишком далеко от игрока, идем к нему
             
             //если же игрок убежал от врага, враг возвращается на свою позицию
             if (DistanceToPlayer > MaxFollowDist)
@@ -78,7 +78,12 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
                 Flip(); //разворачивается
 
             // враг возвращается на свою позицию
-            Chase(SpawnPos, Speed * Time.fixedDeltaTime);            
+
+            transform.position = Vector3.MoveTowards(transform.position, SpawnPos.transform.position, Speed * Time.fixedDeltaTime); //с этим методом перс стоит в айдле
+            if (Mathf.Abs(transform.position.x - SpawnPos.transform.position.x) < 0.1)
+                anim.SetFloat("Walk_float", 0);
+
+            //Chase(SpawnPos, Speed * Time.fixedDeltaTime); //если вызывать chase, то сразу включается анимация ходьбы
         }
     }
 
