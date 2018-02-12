@@ -27,19 +27,18 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     //public Transform parent; // родитель
 
 
-    void Start() {
+    void Start()
+    {
         //берем компонент Аниматор из тела врага
         Warrior_body = GameObject.FindGameObjectWithTag("Warrior_body");
         anim = Warrior_body.GetComponent<Animator>();
-                
         player = GameObject.FindGameObjectWithTag("Dragon");
-        
-
     }
     
     // Update is called once per frame
     void Update() {
         DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+       
     }
     
     void FixedUpdate()
@@ -58,8 +57,10 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
                 Flip(); //разворачивается
 
             //проверяем дистанцию до игрока, eсли дистанция позволяет атакуем
-            if (DistanceToPlayer <= AttackDist)
+            if (DistanceToPlayer <= AttackDist)                      
                 Attack(); // атакуем
+            
+            
                 else if (DistanceToPlayer > AttackDist && DistanceToPlayer < MaxFollowDist)
                                 Chase(player, Speed * Time.fixedDeltaTime); // Если враг слишком далеко от игрока, идем к нему
             
@@ -88,13 +89,13 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
         //if (Mathf.Abs(transform.position.x - chaseObj.transform.position.x) < 0.1)
         //    anim.SetBool("Walk", false);
 
-        print("chaseSpeed is " + chaseSpeed);
+        //print("chaseSpeed is " + chaseSpeed);
         anim.SetFloat("Walk_float", chaseSpeed);
         transform.position = Vector3.MoveTowards(transform.position, chaseObj.transform.position, chaseSpeed);
-        if (Mathf.Abs(transform.position.x - chaseObj.transform.position.x) < 0.1)
-            anim.SetFloat("Walk_float", 0);
+        //if (Mathf.Abs(transform.position.x - chaseObj.transform.position.x) < 0.1)
+        //    anim.SetFloat("Walk_float", 0);
     }
-    
+
     private float DirectionDeterm(GameObject target) //функция определия направления между данным игровым объектом(врагом) и целью (аргумент функции)
     {
         return target.transform.position.x - transform.position.x;
@@ -126,14 +127,15 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
 
     private void Attack() // функция атаки
     {
-        anim.SetTrigger("Attack");
-       // print("Attacking!!!");
+        //anim.SetTrigger("Attack");
+        print("Attacking!!!");
+        anim.SetBool("Attack_bool", true);
 
         if (!Cooldown)//если враг сейчас не перезаряжается, то 
         {
             Cooldown = true; // на перезарядке
             Invoke("HurtPlayer", ReloadTime); // с задержкой вызываем функцию релоад
-                                          // Instantiate(Projectile, parent);
+                                              // Instantiate(Projectile, parent);
         }
 
     }
@@ -142,14 +144,13 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     {
         //print("Attacking!!!");
         Cooldown = false; //перезарядка закончилась
-        GameObject player = GameObject.FindGameObjectWithTag("Dragon");
+        //anim.SetBool("Attack_bool", false);
         player.GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
         //GameObject.FindGameObjectWithTag("Dragon").GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
     }
 
     void Die()
     {
-        
         Destroy(gameObject); // смерть
     }
 
