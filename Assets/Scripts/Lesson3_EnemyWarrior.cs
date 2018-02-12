@@ -119,14 +119,19 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     {
         Health -= Damage;  //Уменьшаем здоровье на дамаг   
         anim.SetTrigger("Hurt");
-        //anim.ResetTrigger("Hurt");
+        Invoke("ResetTrigger", 1);
         if (Health < 1)
         {
+            transform.position = transform.position;
             anim.SetTrigger("Die");
             Invoke("Die", 2);
-
         }
         //Die(); // если здоровье становится меньше 1, враг умирает
+    }
+
+    private void ResetTrigger()
+    {
+        anim.ResetTrigger("Hurt");
     }
 
     private void Attack() // функция атаки
