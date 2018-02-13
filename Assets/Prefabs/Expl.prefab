@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4515127775578640}
   - component: {fileID: 212604990913479378}
+  - component: {fileID: 95728761195938364}
   m_Layer: 9
   m_Name: Expl
   m_TagString: ExplosionFX
@@ -40,6 +41,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95728761195938364
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661423926288346}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8077ba1a0de56f54883031b088ba9d79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &212604990913479378
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -74,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: -1783731295
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 10aa3a116ac3b5b48a4baafd59720ea2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c56ef6f982e8914daf8714d5bcd9cea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

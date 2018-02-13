@@ -119,7 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   Speed: 8
-  LifeTime: 100000
+  LifeTime: 4
+  explosion: {fileID: 1661423926288346, guid: 5745e0a2c965f484e90d6ec454e966c5, type: 2}
 --- !u!212 &212236493083679688
 SpriteRenderer:
   m_ObjectHideFlags: 1

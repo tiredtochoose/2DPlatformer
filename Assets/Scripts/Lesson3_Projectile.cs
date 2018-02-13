@@ -12,7 +12,7 @@ public class Lesson3_Projectile : MonoBehaviour
     public float Speed, LifeTime; //Жизнь и скорость снаряда
     Animator fireAnim;
     private Rigidbody2D rb;
-
+    public GameObject explosion;
 
     Vector3 Dir = new Vector3(0, 0, 0); //направление
 
@@ -40,18 +40,12 @@ public class Lesson3_Projectile : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy") //при сталкновени с геймобжектосм с тэгом Enemy
         {
-            fireAnim.SetTrigger("Explode");
+
             collision.GetComponent<Lesson3_EnemyWarrior>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
-            //и передеаем значение дамага как аргумент
-            Speed = 0;
-            rb = GetComponent<Rigidbody2D>();
-            rb.bodyType = RigidbodyType2D.Kinematic;
+            Instantiate(explosion, transform.position, transform.rotation);
 
-
-            print(rb.bodyType);
-            
-
-            //DestroyProjectile();
+            DestroyProjectile();
+            Invoke("DestroyExplosion", 2);
         }
         
     }
@@ -60,4 +54,9 @@ public class Lesson3_Projectile : MonoBehaviour
     {
         Destroy(gameObject);//убиваем снаряд 
     }
+    void DestroyExplosion()
+    {
+        Destroy(explosion);//убиваем снаряд 
+    }
+
 }
