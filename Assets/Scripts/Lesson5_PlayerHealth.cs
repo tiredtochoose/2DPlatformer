@@ -32,14 +32,14 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
         if (PlayersHealth <= 0)
         {
             anim.SetBool("Die_Bool", true);
-            Die();
+            //Invoke("Die", 2);
         }
             
     }
 
     void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject); //вызывается из анимации
     }
 
 
