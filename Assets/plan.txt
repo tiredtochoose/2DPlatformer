@@ -1,0 +1,25 @@
+dragon animations:
+	hurt
+	die
+
+separate dragon's fire from explosion
+
+wizard
+	idle
+	walk
+	attack
+		+ instantiate bullet
+		bullet + sxf + rotation?
+		bullet attack player
+	hurt
+	die - virus sfx
+	
+archer
+	idle
+	walk
+	attack
+		+ instantiate arrow
+		arrow + rigid body = flies like dragon's fire
+	hurt
+	die
+	
