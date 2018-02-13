@@ -3,6 +3,8 @@ dragon animations:
 	die
 
 separate dragon's fire from explosion
+	done
+	destroy(explosion) does not work??
 
 wizard
 	idle
