@@ -46,7 +46,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
     void FixedUpdate()
     {
         DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        print("Warrior - Player distance is" + DistanceToPlayer);
+        //print("Warrior - Player distance is" + DistanceToPlayer);
 
         if (DistanceToPlayer <= MaxFollowDist)
         {
@@ -118,7 +118,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
                                  //Lesson3_Projectile, положенный на префаб Fire
     {
         Health -= Damage;  //Уменьшаем здоровье на дамаг   
-        anim.SetTrigger("Hurt");
+        anim.SetBool("Hurt", true);
         Invoke("ResetTrigger", 1);
         if (Health < 1)
         {
@@ -131,7 +131,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
 
     private void ResetTrigger()
     {
-        anim.ResetTrigger("Hurt");
+        anim.SetBool("Hurt", false);
     }
 
     private void Attack() // функция атаки

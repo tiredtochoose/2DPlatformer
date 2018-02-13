@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 114282820320544114}
   - component: {fileID: 50299455277550206}
   - component: {fileID: 61676712027529286}
-  - component: {fileID: 58664308660760294}
-  - component: {fileID: 61661551202824182}
   m_Layer: 10
   m_Name: Enemy_Warrior
   m_TagString: Enemy
@@ -41,7 +39,6 @@ GameObject:
   - component: {fileID: 4069491880515562}
   - component: {fileID: 212049468802917478}
   - component: {fileID: 95244210895351966}
-  - component: {fileID: 61884208390646148}
   m_Layer: 10
   m_Name: Enemy_Warrrior_body
   m_TagString: Warrior_body
@@ -69,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009293099705850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.88, y: -2.23, z: 0}
+  m_LocalPosition: {x: 3.29, y: -2.209, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4069491880515562}
@@ -96,53 +93,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58664308660760294
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009293099705850}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.14
---- !u!61 &61661551202824182
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1009293099705850}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.11026621, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.0044193, y: 1}
-  m_EdgeRadius: 0
 --- !u!61 &61676712027529286
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009293099705850}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -160,31 +117,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.6848159, y: 1.1017265}
-  m_EdgeRadius: 0
---- !u!61 &61884208390646148
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1751695625272402}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.2, y: 10.21}
-    newSize: {x: 9.2, y: 10.21}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 9.2, y: 10.21}
   m_EdgeRadius: 0
 --- !u!95 &95244210895351966
 Animator:
@@ -214,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea7b47c7f998bd44a02f20a0962c256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 4
   Speed: 0.8
   AttackDist: 1
-  MaxFollowDist: 4
+  MaxFollowDist: 3
   SpawnPos: {fileID: 0}
   ReloadTime: 1
   Damage: 1
