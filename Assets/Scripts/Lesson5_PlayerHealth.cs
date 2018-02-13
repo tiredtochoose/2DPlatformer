@@ -28,13 +28,15 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
        
         //print(dmg);
         PlayersHealth -= dmg;
-        anim.SetTrigger("Hurt");
+        anim.SetBool("Hurt", true);
         if (PlayersHealth <= 0)
-        {
-            anim.SetBool("Die_Bool", true);
-            //Invoke("Die", 2);
-        }
-            
+              anim.SetBool("Die_Bool", true);
+                           
+    }
+
+    void HurtAnimOff()
+    {
+        anim.SetBool("Hurt", false);
     }
 
     void Die()
