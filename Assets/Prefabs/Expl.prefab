@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4515127775578640}
   - component: {fileID: 212604990913479378}
   - component: {fileID: 95728761195938364}
+  - component: {fileID: 114747312983935958}
   m_Layer: 9
   m_Name: Expl
   m_TagString: ExplosionFX
@@ -58,6 +59,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114747312983935958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661423926288346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f24b104e4f708478b949d1f45928be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeTime: 2
 --- !u!212 &212604990913479378
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,9 +102,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1783731295
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 1535931219
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9c56ef6f982e8914daf8714d5bcd9cea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

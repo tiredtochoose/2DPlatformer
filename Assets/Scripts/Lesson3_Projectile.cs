@@ -43,20 +43,21 @@ public class Lesson3_Projectile : MonoBehaviour
 
             collision.GetComponent<Lesson3_EnemyWarrior>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
             Instantiate(explosion, transform.position, transform.rotation);
-
-            DestroyProjectile();
-            Invoke("DestroyExplosion", 2);
+            Destroy(gameObject);//убиваем снаряд 
+            //DestroyExplosion();
         }
         
     }
 
-    void DestroyProjectile()
-    {
-        Destroy(gameObject);//убиваем снаряд 
-    }
-    void DestroyExplosion()
-    {
-        Destroy(explosion);//убиваем снаряд 
-    }
+    //void DestroyProjectile()
+    //{
+    //    Destroy(gameObject);//убиваем снаряд 
+    //}
+    //void DestroyExplosion()
+    //{
+    //    DestroyImmediate();
+    //    print("DestroyExplosion");
+    //    Destroy(explosion, 3);//убиваем снаряд 
+    //}
 
 }
