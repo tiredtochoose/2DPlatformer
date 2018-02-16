@@ -2703,7 +2703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558604547}
   m_Layer: 10
-  m_Name: GameObject
+  m_Name: MagicStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8082,7 +8082,7 @@ MonoBehaviour:
   Speed: 0.8
   bullet: {fileID: 1314880016283170, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
   bulletPos: {fileID: 558604547}
-  AttackDist: 1
+  AttackDist: 2
   MaxFollowDist: 4
   SpawnPos: {fileID: 181952287}
   ReloadTime: 1

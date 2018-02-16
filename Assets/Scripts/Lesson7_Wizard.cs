@@ -153,7 +153,7 @@ public class Lesson7_Wizard : MonoBehaviour
 
     }
 
-    public void MagicBullet()
+    public void MagicBullet() //вызывается ивентом в анимации
     {
         Instantiate(bullet, bulletPos);
     }
