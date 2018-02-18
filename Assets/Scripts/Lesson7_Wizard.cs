@@ -20,7 +20,7 @@ public class Lesson7_Wizard : MonoBehaviour
     private GameObject player;
     
     private bool Cooldown = false; // состояние перезарядки
-    public float ReloadTime; //  время перезарядки
+    
     private Animator anim;
     // public float Damage; //дамаг, наносимый плееру при атаке 
                             // перенесся на Lesson7_WizrdBullet
