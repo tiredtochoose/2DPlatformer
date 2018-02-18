@@ -38,7 +38,7 @@ public class Lesson3_Projectile : MonoBehaviour
     {
         //print("Fire entered collision" + collision.gameObject.name);
 
-        if (collision.gameObject.tag == "Enemy") //при сталкновени с геймобжектосм с тэгом Enemy
+        if (collision.gameObject.tag == "EnemyWarrior") //при сталкновени с геймобжектосм с тэгом Enemy
         {
 
             collision.GetComponent<Lesson3_EnemyWarrior>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
@@ -46,7 +46,15 @@ public class Lesson3_Projectile : MonoBehaviour
             Destroy(gameObject);//убиваем снаряд 
             //DestroyExplosion();
         }
-        
+
+        if (collision.gameObject.tag == "EnemyWizard") //при сталкновени с геймобжектосм с тэгом Enemy
+        {
+
+            collision.GetComponent<Lesson7_Wizard>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);//убиваем снаряд 
+            //DestroyExplosion();
+        }
     }
 
     //void DestroyProjectile()

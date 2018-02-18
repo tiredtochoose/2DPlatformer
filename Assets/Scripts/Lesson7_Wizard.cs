@@ -121,18 +121,18 @@ public class Lesson7_Wizard : MonoBehaviour
                                  //Lesson3_Projectile, положенный на префаб Fire
     {
         Health -= Damage;  //Уменьшаем здоровье на дамаг   
-        anim.SetBool("Hurt", true);
-        Invoke("ResetTrigger", 1);
+        anim.SetBool("Hurt", true); //анимация выключается через private void AnimOff()
+
         if (Health < 1)
         {
             transform.position = transform.position;
-            anim.SetTrigger("Die");
-            Invoke("Die", 2);
+            anim.SetTrigger("Die"); //объект уничтожается по ивенту в конце анимации
+            
         }
         //Die(); // если здоровье становится меньше 1, враг умирает
     }
 
-    private void ResetTrigger()
+    private void AnimOff()// вызывается ивентом в конце анимации Hurt
     {
         anim.SetBool("Hurt", false);
     }
@@ -143,19 +143,20 @@ public class Lesson7_Wizard : MonoBehaviour
         print("Attacking!!!");
         anim.SetBool("Attack", true);
 
-        if (!Cooldown)//если враг сейчас не перезаряжается, то 
-        {
+        //if (!Cooldown)//если враг сейчас не перезаряжается, то 
+        //{
 
-            Cooldown = true; // на перезарядке
-            Invoke("HurtPlayer", ReloadTime); // с задержкой вызываем функцию релоад
-                                              // Instantiate(Projectile, parent);
-        }
+        //    Cooldown = true; // на перезарядке
+        //    Invoke("HurtPlayer", ReloadTime); // с задержкой вызываем функцию релоад
+        //                                      // Instantiate(Projectile, parent);
+        //}
 
     }
 
     public void MagicBullet() //вызывается ивентом в анимации
     {
-        Instantiate(bullet, bulletPos);
+        Instantiate(bullet, bulletPos.transform.position, bulletPos.transform.rotation);
+        anim.SetBool("Attack", false);
     }
 
     void HurtPlayer()
@@ -163,11 +164,11 @@ public class Lesson7_Wizard : MonoBehaviour
         //print("Attacking!!!");
         Cooldown = false; //перезарядка закончилась
         anim.SetBool("Attack", false);
-        player.GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
+        //player.GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
         //GameObject.FindGameObjectWithTag("Dragon").GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
     }
 
-    void Die()
+    void Die() //объект уничтожается по ивенту в конце анимации
     {
         Destroy(gameObject); // смерть
     }
