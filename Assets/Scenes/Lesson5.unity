@@ -649,7 +649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181952288}
   m_Layer: 10
-  m_Name: GameObject
+  m_Name: Wizard Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1722,48 +1722,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1001 &423847175
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4570315765840836, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &459198493
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,7 +4268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1048450781}
   m_Layer: 0
-  m_Name: EnemyPosition
+  m_Name: Warrior Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4323,7 +4281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1048450780}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.232, y: -2.72, z: 0}
+  m_LocalPosition: {x: 12.599999, y: -2.79, z: 0}
   m_LocalScale: {x: 0.10400832, y: 0.10400838, z: 0.10400838}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6521,11 +6479,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4428246121270050, guid: 2e3d79ce412037c4f9b9223867ac3e6b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.32
+      value: 3.35
       objectReference: {fileID: 0}
     - target: {fileID: 4428246121270050, guid: 2e3d79ce412037c4f9b9223867ac3e6b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.86
+      value: -1.82
       objectReference: {fileID: 0}
     - target: {fileID: 4428246121270050, guid: 2e3d79ce412037c4f9b9223867ac3e6b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8087,11 +8045,11 @@ GameObject:
   - component: {fileID: 1884148357}
   m_Layer: 10
   m_Name: Enemy_Wizard
-  m_TagString: Enemy
+  m_TagString: EnemyWizard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1884148356
 Animator:
   serializedVersion: 3
@@ -8205,12 +8163,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884148355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: -2.215, z: 0}
+  m_LocalPosition: {x: 6.82, y: -2.215, z: 0}
   m_LocalScale: {x: 0.1132038, y: 0.1132038, z: 0.1132038}
   m_Children:
   - {fileID: 558604547}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1884148361
 MonoBehaviour:
@@ -8223,15 +8181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99d8fd1e7ccc8e42b4165ea567d5d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 4
+  Health: 1
   Speed: 0.8
   bullet: {fileID: 1314880016283170, guid: 107e49a36a45e9342ae17ff3346156dd, type: 2}
   bulletPos: {fileID: 558604547}
   AttackDist: 2
-  MaxFollowDist: 4
+  MaxFollowDist: 3
   SpawnPos: {fileID: 181952287}
   ReloadTime: 1
-  Damage: 1
 --- !u!1 &1912845652
 GameObject:
   m_ObjectHideFlags: 0
@@ -9391,11 +9348,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4126032889751184, guid: 1a8c7f2e6ba22684c910bb69e3dd103f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.2219996
+      value: 12.69
       objectReference: {fileID: 0}
     - target: {fileID: 4126032889751184, guid: 1a8c7f2e6ba22684c910bb69e3dd103f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.209
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: 4126032889751184, guid: 1a8c7f2e6ba22684c910bb69e3dd103f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9428,7 +9385,11 @@ Prefab:
       objectReference: {fileID: 1048450780}
     - target: {fileID: 1009293099705850, guid: 1a8c7f2e6ba22684c910bb69e3dd103f, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009293099705850, guid: 1a8c7f2e6ba22684c910bb69e3dd103f, type: 2}
+      propertyPath: m_TagString
+      value: EnemyWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a8c7f2e6ba22684c910bb69e3dd103f, type: 2}
