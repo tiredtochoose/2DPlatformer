@@ -25,13 +25,10 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
 
     public void ReceivingDamage(float dmg)
     {
-       
-        //print(dmg);
         PlayersHealth -= dmg;
         anim.SetBool("Hurt", true);
         if (PlayersHealth <= 0)
               anim.SetBool("Die_Bool", true);
-                           
     }
 
     void HurtAnimOff()
