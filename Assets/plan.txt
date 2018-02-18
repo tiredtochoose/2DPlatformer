@@ -1,24 +1,18 @@
 dragon animations:
-	hurt - done
+	hurt - moves while walking
 	die - done
+	attack from jump
 	
-separate dragon's fire from explosion
-	done
-	destroy(explosion) does not work -- FIXED
+
 
 wizard
 	idle - FIXED
 	walk - FIXED
 	attack
 		+ instantiate bullet
-		bullet + sxf + rotation?
+		bullet + sxf 
 		bullet attack player
 	hurt
-		проблема в колде прожектайла дракона
-		 if (collision.gameObject.tag == "Enemy") //при сталкновени с геймобжектосм с тэгом Enemy
-        {
-
-            collision.GetComponent<Lesson3_EnemyWarrior>().Hurt(Damage);//вызываем функцию Hurt из скрипта Lesson3_MyEnemy
 		
 	die - virus sfx
 	
@@ -30,4 +24,9 @@ archer
 		arrow + rigid body = flies like dragon's fire
 	hurt
 	die
+
+
+environment 
+	add fire for wizard2
+
 	
