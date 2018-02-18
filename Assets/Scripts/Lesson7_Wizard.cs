@@ -10,7 +10,7 @@ public class Lesson7_Wizard : MonoBehaviour
     public float Speed; // Задаем скорость 
     public GameObject bullet;
     public Transform bulletPos;
-    // private GameObject AttackTarget; // цель врага (в таргет крадем префаб плеера)
+    
     private bool Angry; //видит ли нас противник     
     private bool facingRight = true; // смотрит вперед
     private float DistanceToPlayer;
@@ -18,25 +18,16 @@ public class Lesson7_Wizard : MonoBehaviour
     public float MaxFollowDist; //расстояние, на котором враг теряет игрока из виду
     public GameObject SpawnPos; //точка возврата врага, если он теряет игрока из виду
     private GameObject player;
-
-    ////////////////////////////private GameObject Warrior_body;
-
-    // public GameObject Projectile; // снаряд врага
+    
     private bool Cooldown = false; // состояние перезарядки
     public float ReloadTime; //  время перезарядки
     private Animator anim;
     public float Damage; //дамаг, наносимый плееру при атаке
-
-    //public Transform parent; // родитель
-
-
+    
     void Start()
     {
-        //берем компонент Аниматор из тела врага
-        /////////////////////////////////////Warrior_body = GameObject.FindGameObjectWithTag("Warrior_body");
-        anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Dragon");
-
+       anim = GetComponent<Animator>();
+       player = GameObject.FindGameObjectWithTag("Dragon");
     }
 
     // Update is called once per frame
@@ -49,14 +40,9 @@ public class Lesson7_Wizard : MonoBehaviour
     void FixedUpdate()
     {
         DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        print("Warrior - Player distance is" + DistanceToPlayer);
-
+        
         if (DistanceToPlayer <= MaxFollowDist)
-        {
-            //AttackTarget = player;
-            Angry = true; // меняем состояние Angry на true, то есть противник на видит
-        }
-
+              Angry = true; // меняем состояние Angry на true, то есть противник на видит
 
         if (Angry) // если игрок зашел в зону видимости врага
         {
@@ -129,7 +115,7 @@ public class Lesson7_Wizard : MonoBehaviour
             anim.SetTrigger("Die"); //объект уничтожается по ивенту в конце анимации
             
         }
-        //Die(); // если здоровье становится меньше 1, враг умирает
+        
     }
 
     private void AnimOff()// вызывается ивентом в конце анимации Hurt
@@ -138,19 +124,8 @@ public class Lesson7_Wizard : MonoBehaviour
     }
 
     private void Attack() // функция атаки
-    {
-        //anim.SetTrigger("Attack");
-        print("Attacking!!!");
+    {        
         anim.SetBool("Attack", true);
-
-        //if (!Cooldown)//если враг сейчас не перезаряжается, то 
-        //{
-
-        //    Cooldown = true; // на перезарядке
-        //    Invoke("HurtPlayer", ReloadTime); // с задержкой вызываем функцию релоад
-        //                                      // Instantiate(Projectile, parent);
-        //}
-
     }
 
     public void MagicBullet() //вызывается ивентом в анимации
@@ -161,11 +136,10 @@ public class Lesson7_Wizard : MonoBehaviour
 
     void HurtPlayer()
     {
-        //print("Attacking!!!");
+        
         Cooldown = false; //перезарядка закончилась
         anim.SetBool("Attack", false);
-        //player.GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
-        //GameObject.FindGameObjectWithTag("Dragon").GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
+        
     }
 
     void Die() //объект уничтожается по ивенту в конце анимации
