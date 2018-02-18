@@ -126,7 +126,7 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
             anim.SetTrigger("Die");
             Invoke("Die", 2);
         }
-        //Die(); // если здоровье становится меньше 1, враг умирает
+        
     }
 
     private void ResetTrigger()
@@ -136,8 +136,6 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
 
     private void Attack() // функция атаки
     {
-        //anim.SetTrigger("Attack");
-        print("Attacking!!!");
         anim.SetBool("Attack_bool", true);
 
         if (!Cooldown)//если враг сейчас не перезаряжается, то 
@@ -151,11 +149,11 @@ public class Lesson3_EnemyWarrior : MonoBehaviour {
 
     void HurtPlayer()
     {
-        //print("Attacking!!!");
+        
         Cooldown = false; //перезарядка закончилась
         anim.SetBool("Attack_bool", false);
         player.GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
-        //GameObject.FindGameObjectWithTag("Dragon").GetComponent<Lesson5_PlayerHealth>().ReceivingDamage(Damage);
+        
     }
 
     void Die()
