@@ -8,6 +8,7 @@ public class Lesson7_WizrdBullet : MonoBehaviour {
     public float speed;
     public float lifeTime;
     private Vector3 relativePos;
+    private float direction;
 
 
 
@@ -15,10 +16,8 @@ public class Lesson7_WizrdBullet : MonoBehaviour {
     void Start () {
         player = GameObject.FindGameObjectWithTag("Dragon");
         Destroy(gameObject, lifeTime);
+        direction = player.transform.position.x - transform.position.x;
 
-        relativePos = player.transform.position - transform.position;
-        //Quaternion rotation = Quaternion.LookRotation(relativePos);
-        //transform.rotation = rotation;
     }
 	
 	// Update is called once per frame
@@ -28,10 +27,10 @@ public class Lesson7_WizrdBullet : MonoBehaviour {
 
     void FixedUpdate()
     {
-        //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
-        
-
-        transform.Translate(relativePos * speed * Time.fixedDeltaTime);
+        if (direction > 0)
+            transform.Translate(Vector2.right * speed * Time.fixedDeltaTime);
+        if (direction < 0)
+            transform.Translate(Vector2.left * speed * Time.fixedDeltaTime);
     }
 
     //void OnTriggerEnter2D(Collider2D collision)
