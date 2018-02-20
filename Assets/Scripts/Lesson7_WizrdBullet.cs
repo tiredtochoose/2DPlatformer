@@ -32,7 +32,7 @@ public class Lesson7_WizrdBullet : MonoBehaviour {
         if (direction < 0)
             transform.Translate(Vector2.left * speed * Time.fixedDeltaTime);
         distance = Vector3.Distance(transform.position, player.transform.position);
-        print(distance);
+//        print(distance);
         if (distance <= 0.5f)
         {
             
