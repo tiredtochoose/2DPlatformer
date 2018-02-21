@@ -25,6 +25,7 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
 
     public void ReceivingDamage(float dmg)
     {
+        print("Dragon's Health " + PlayersHealth);
         PlayersHealth -= dmg;
         anim.SetBool("Hurt", true);
         if (PlayersHealth <= 0)
@@ -36,7 +37,7 @@ public class Lesson5_PlayerHealth : MonoBehaviour {
         anim.SetBool("Hurt", false);
     }
 
-    void Die()
+    private void Die()
     {
         Destroy(gameObject); //вызывается из анимации
     }
