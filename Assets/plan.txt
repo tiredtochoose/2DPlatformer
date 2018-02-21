@@ -1,13 +1,17 @@
 dragon animations:
 	hurt - moves while walking
 	attack from jump
+	сломалась смерть
+
 	
+когда несколько врагов на сцене, некорректно расчитывается расстояние до позиции врага
 
 
 wizard
 	появление по sfx 
 	смерть с черепушкой sfx
 	переделать атаку на рейкасты
+	патрулирование территории
 	add fire for wizard2
 	
 archer
