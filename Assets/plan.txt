@@ -1,20 +1,14 @@
 dragon animations:
 	hurt - moves while walking
-	die - done
 	attack from jump
 	
 
 
 wizard
-	idle - FIXED
-	walk - FIXED
-	attack
-		+ instantiate bullet
-		bullet + sxf 
-		bullet attack player
-	hurt
-		
-	die - virus sfx
+	появление по sfx 
+	смерть с черепушкой sfx
+	переделать атаку на рейкасты
+	add fire for wizard2
 	
 archer
 	idle
@@ -26,7 +20,9 @@ archer
 	die
 
 
-environment 
-	add fire for wizard2
+
+
+
+	
 
 	
